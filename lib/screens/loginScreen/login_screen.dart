@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos/screens/widgets/copyright.dart';
 import 'package:pos/screens/widgets/password_textformfield.dart';
 import 'package:pos/screens/widgets/username_textformfield.dart';
 
@@ -23,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
             UsernameTextFormField(controller: _username),
             const SizedBox(height: 10),
             PasswordTextFormField(controller: _password),
+            const Spacer(),
+            Copyrights(),
           ],
         ),
       ),
