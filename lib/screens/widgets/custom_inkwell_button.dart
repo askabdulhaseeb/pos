@@ -15,7 +15,7 @@ class CustomInkWellButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FittedBox(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(Utilities.borderRadious),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos/screens/admin/admin_home_screen.dart';
 import 'package:pos/screens/widgets/copyright.dart';
 import 'package:pos/screens/widgets/custom_inkwell_button.dart';
 import 'package:pos/screens/widgets/password_textformfield.dart';
@@ -42,7 +43,12 @@ class _LoginScreenState extends State<LoginScreen> {
             UsernameTextFormField(controller: _username),
             const SizedBox(height: 10),
             PasswordTextFormField(controller: _password),
-            CustomInkWellButton(onTap: () {}, child: const Text('Login')),
+            CustomInkWellButton(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(AdminHomeScreen.routeName);
+                },
+                child: const Text('Login')),
             Copyrights(),
           ],
         ),
