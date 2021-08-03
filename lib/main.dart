@@ -9,9 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Point of Sale',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
+        accentColor: Colors.green,
+        errorColor: Colors.red,
+        splashColor: Colors.blueAccent,
       ),
       home: const LoginScreen(),
     );
