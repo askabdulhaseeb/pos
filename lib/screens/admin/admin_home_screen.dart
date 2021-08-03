@@ -4,6 +4,7 @@ import 'package:pos/screens/productScreens/editProductDetails/edit_product_detai
 import 'package:pos/screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
 import 'package:pos/screens/productScreens/printBarcode/print_barcode.dart';
 import 'package:pos/screens/productScreens/saleProduct/sale_product.dart';
+import 'package:pos/screens/widgets/custom_appbar.dart';
 import 'package:pos/screens/widgets/custom_inkwell_button.dart';
 import 'package:pos/utilities/utilities.dart';
 import 'package:pos/utilities/window_size.dart';
@@ -28,38 +29,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Home Screen',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            tooltip: 'settings',
-            splashRadius: Utilities.iconBorderRadius,
-            icon: Icon(
-              Icons.settings,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            tooltip: 'Log out',
-            splashRadius: Utilities.iconBorderRadius,
-            icon: Icon(
-              Icons.logout,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-          const SizedBox(width: 10),
-        ],
-      ),
+      appBar: customWelcomeAppBar(context),
       body: Scrollbar(
         isAlwaysShown: true,
         child: ListView(

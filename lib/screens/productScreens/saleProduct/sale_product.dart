@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos/screens/widgets/custom_appbar.dart';
 
 class SaleProductScreen extends StatelessWidget {
   const SaleProductScreen({Key? key}) : super(key: key);
@@ -6,6 +7,8 @@ class SaleProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: customAppBar(context: context, title: 'Sale Product'),
+    );
   }
 }
