@@ -5,6 +5,6 @@ class Category {
     required this.depID,
   });
   final String title;
-  final String catID;
+  final String catID; // unique, auto
   final String depID;
 }

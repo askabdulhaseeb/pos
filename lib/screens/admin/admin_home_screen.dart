@@ -43,6 +43,19 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   _stockButtons(),
                   _title('Reports'),
                   _reportButtons(),
+                  _title('Retailer Bill'),
+                  Wrap(
+                    children: <Widget>[
+                      CustomInkWellButton(
+                        onTap: () {},
+                        child: const Text('Add Retailer Bill'),
+                      ),
+                      CustomInkWellButton(
+                        onTap: () {},
+                        child: const Text('View Retailer Bill'),
+                      ),
+                    ],
+                  ),
                   _title('Expenses'),
                   _expenseButtons(),
                   _title('Staff'),

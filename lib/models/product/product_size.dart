@@ -4,5 +4,5 @@ class ProductSize {
     required this.title,
   });
   final String title;
-  final String sid;
+  final String sid; // unique, auto
 }

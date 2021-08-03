@@ -4,5 +4,5 @@ class Stuff {
     required this.id,
   });
   String title;
-  String id;
+  String id; // Auto
 }

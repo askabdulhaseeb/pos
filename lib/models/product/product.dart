@@ -21,7 +21,7 @@ class Product {
   final String name;
   final String depID; // Department ID
   final String catID; // Category ID
-  final String barcode;
+  final String barcode; // Auto OR Manual
   final List<String> retailerBillID;
   final String sid; // Product Size ID
   final String stuff;
