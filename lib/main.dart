@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.green,
         errorColor: Colors.red,
         splashColor: Colors.blueAccent,
+        hoverColor: Colors.blue[100],
       ),
       home: const LoginScreen(),
     );

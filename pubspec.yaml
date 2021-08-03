@@ -13,6 +13,7 @@ dependencies:
   lint: ^1.5.3
 
   url_launcher: ^6.0.9
+  desktop_window: ^0.4.0
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
