@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pos/screens/productScreens/addProduct/add_product.dart';
+import 'package:pos/screens/productScreens/editProductDetails/edit_product_details.dart';
+import 'package:pos/screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
+import 'package:pos/screens/productScreens/printBarcode/print_barcode.dart';
+import 'package:pos/screens/productScreens/saleProduct/sale_product.dart';
 import 'package:pos/screens/widgets/custom_inkwell_button.dart';
 import 'package:pos/utilities/utilities.dart';
 import 'package:pos/utilities/window_size.dart';
@@ -64,7 +69,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _title('Stock'),
+                  _title('Product'),
                   _stockButtons(),
                   _title('Reports'),
                   _reportButtons(),
@@ -159,27 +164,34 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
     return Wrap(
       children: <Widget>[
         CustomInkWellButton(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(AddProductScreen.routeName);
+          },
           child: const Text('Add Product'),
         ),
         CustomInkWellButton(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(SaleProductScreen.routeName);
+          },
           child: const Text('Sale Product'),
         ),
         CustomInkWellButton(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(EditProductDetailsScreen.routeName);
+          },
           child: const Text('Edit Product Detail'),
         ),
         CustomInkWellButton(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed(EditProductQuantityScreen.routeName);
+          },
           child: const Text('Edit Product Quantity'),
         ),
         CustomInkWellButton(
-          onTap: () {},
-          child: const Text('Edit Product Quantity'),
-        ),
-        CustomInkWellButton(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(PrintBarcodeScreen.routeName);
+          },
           child: const Text('Print Barcode'),
         ),
       ],
