@@ -14,6 +14,7 @@ dependencies:
 
   url_launcher: ^6.0.9
   desktop_window: ^0.4.0
+  dropdown_search: ^0.6.3
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
