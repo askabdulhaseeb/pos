@@ -18,8 +18,6 @@ class AddProductScreen extends StatefulWidget {
 
 class _AddProductScreenState extends State<AddProductScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
-  final TextEditingController _name = TextEditingController();
-  final TextEditingController _barcode = TextEditingController();
   String _selectedDep = '';
   @override
   Widget build(BuildContext context) {
@@ -39,7 +37,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomTextFormField(
-                    controller: _barcode,
+                    onChange: (value) {},
                     title: 'Bill No',
                     hint: 'Retailer Bill No.',
                   ),
@@ -62,14 +60,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ],
               ),
               CustomTextFormField(
-                controller: TextEditingController(text: 'ABCD'),
+                onChange: (value) {},
                 title: 'Bill No',
                 // hint: 'Retailer Bill No.',
                 readOnly: true,
               ),
               const SizedBox(height: 20),
               CustomTextFormField(
-                controller: _name,
+                onChange: (value) {},
                 title: 'Name',
                 hint: 'Product Name',
               ),
@@ -99,17 +97,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 onChange: (value) {},
               ),
               CustomTextFormField(
-                controller: _name,
+                onChange: (value) {},
                 title: 'Barcode',
                 hint: 'Product Barcode',
               ),
               CustomTextFormField(
-                controller: _name,
+                onChange: (value) {},
                 title: 'Size',
                 hint: 'Product Size',
               ),
               CustomTextFormField(
-                controller: _name,
+                onChange: (value) {},
                 title: 'Stuff',
                 hint: 'Product Stuff',
               ),

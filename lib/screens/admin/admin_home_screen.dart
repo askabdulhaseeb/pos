@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
+import 'package:pos/screens/RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
 import 'package:pos/screens/productScreens/addProduct/add_product.dart';
 import 'package:pos/screens/productScreens/editProductDetails/edit_product_details.dart';
 import 'package:pos/screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
@@ -47,11 +49,17 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   Wrap(
                     children: <Widget>[
                       CustomInkWellButton(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(AddRetailerBillScreen.routeName);
+                        },
                         child: const Text('Add Retailer Bill'),
                       ),
                       CustomInkWellButton(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(ViewRetailerBillScreen.routeName);
+                        },
                         child: const Text('View Retailer Bill'),
                       ),
                     ],
