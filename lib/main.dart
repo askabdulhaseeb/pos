@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pos/provider/category_provider.dart';
+import 'package:pos/provider/department_provider.dart';
+import 'package:pos/provider/product_provider.dart';
+import 'package:pos/screens/RetailerBillScreens/EditRetailerBillScreen/edit_retailer_bill_screen.dart';
+import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
+import 'package:pos/screens/RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
+
 import 'package:pos/screens/admin/admin_home_screen.dart';
 import 'package:pos/screens/loginScreen/login_screen.dart';
 import 'package:pos/screens/productScreens/addProduct/add_product.dart';
@@ -6,6 +13,7 @@ import 'package:pos/screens/productScreens/editProductDetails/edit_product_detai
 import 'package:pos/screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
 import 'package:pos/screens/productScreens/printBarcode/print_barcode.dart';
 import 'package:pos/screens/productScreens/saleProduct/sale_product.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,30 +22,44 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Point of Sale',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        accentColor: Colors.green,
-        errorColor: Colors.red,
-        splashColor: Colors.blueAccent,
-        hoverColor: Colors.blue[100],
-        iconTheme: IconThemeData(color: Colors.blue[300]),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: DepartmentProvider()),
+        ChangeNotifierProvider.value(value: CategoryProvider()),
+        ChangeNotifierProvider.value(value: ProductProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Point of Sale',
+        theme: ThemeData(
+          primaryColor: Colors.blue,
+          accentColor: Colors.green,
+          errorColor: Colors.red,
+          splashColor: Colors.blueAccent,
+          hoverColor: Colors.blue[100],
+          iconTheme: IconThemeData(color: Colors.blue[300]),
+        ),
+        home: const AdminHomeScreen(),
+        routes: {
+          LoginScreen.routeName: (_) => const LoginScreen(),
+          AdminHomeScreen.routeName: (_) => const AdminHomeScreen(),
+          // Product Screen
+          AddProductScreen.routeName: (_) => const AddProductScreen(),
+          SaleProductScreen.routeName: (_) => const SaleProductScreen(),
+          EditProductDetailsScreen.routeName: (_) =>
+              const EditProductDetailsScreen(),
+          EditProductQuantityScreen.routeName: (_) =>
+              const EditProductQuantityScreen(),
+          PrintBarcodeScreen.routeName: (_) => const PrintBarcodeScreen(),
+
+          // Retailer Bill Screens
+          AddRetailerBillScreen.routeName: (_) => const AddRetailerBillScreen(),
+          EditRetailerBillScreen.routeName: (_) =>
+              const EditRetailerBillScreen(),
+          ViewRetailerBillScreen.routeName: (_) =>
+              const ViewRetailerBillScreen(),
+        },
       ),
-      home: const AdminHomeScreen(),
-      routes: {
-        LoginScreen.routeName: (_) => const LoginScreen(),
-        AdminHomeScreen.routeName: (_) => const AdminHomeScreen(),
-        // Product Screen
-        AddProductScreen.routeName: (_) => const AddProductScreen(),
-        SaleProductScreen.routeName: (_) => const SaleProductScreen(),
-        EditProductDetailsScreen.routeName: (_) =>
-            const EditProductDetailsScreen(),
-        EditProductQuantityScreen.routeName: (_) =>
-            const EditProductQuantityScreen(),
-        PrintBarcodeScreen.routeName: (_) => const PrintBarcodeScreen(),
-      },
     );
   }
 }

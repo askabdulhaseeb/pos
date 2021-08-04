@@ -27,5 +27,11 @@ class CategoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Category> get categories => [..._cat];
+  List<Category> categoriesOfSpecificDepartment(String depID) {
+    final List<Category> _newList = [];
+    _newList.addAll(_cat.where((e) => e.depID == depID));
+    return _newList;
+  }
+
+  List<Category> get allCategories => [..._cat];
 }

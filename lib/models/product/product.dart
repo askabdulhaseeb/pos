@@ -1,8 +1,3 @@
-import 'package:pos/models/product/category.dart';
-import 'package:pos/models/product/department.dart';
-import 'package:pos/models/product/product_size.dart';
-import 'package:pos/models/product/retailer.dart';
-
 class Product {
   Product({
     required this.name,
@@ -18,7 +13,7 @@ class Product {
     required this.shopQty,
     required this.storeQty,
   });
-  final String name;
+  late final String name;
   final String depID; // Department ID
   final String catID; // Category ID
   final String barcode; // Auto OR Manual
