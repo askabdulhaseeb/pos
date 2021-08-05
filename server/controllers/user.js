@@ -30,4 +30,18 @@ module.exports={
             })
     }, 
 
+    async getSearchUser(req, res, next) {
+        await db.sequelize.query(`select * from users where name Like '${req.params.name}%'`)
+            .then(records => {
+                return res.status(200).json({
+                    message: 'Successfully Fetched',
+                    records: records,
+                });
+            }).catch((err) => {
+                console.log(err);
+                next();
+            })
+    }, 
+
+
 };
