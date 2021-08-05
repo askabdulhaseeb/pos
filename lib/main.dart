@@ -23,10 +23,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      // ignore: always_specify_types
       providers: [
-        ChangeNotifierProvider.value(value: DepartmentProvider()),
-        ChangeNotifierProvider.value(value: CategoryProvider()),
-        ChangeNotifierProvider.value(value: ProductProvider()),
+        ChangeNotifierProvider<DepartmentProvider>.value(
+            value: DepartmentProvider()),
+        ChangeNotifierProvider<CategoryProvider>.value(
+            value: CategoryProvider()),
+        ChangeNotifierProvider<ProductProvider>.value(value: ProductProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -40,7 +43,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.blue[300]),
         ),
         home: const AdminHomeScreen(),
-        routes: {
+        routes: <String, WidgetBuilder>{
           LoginScreen.routeName: (_) => const LoginScreen(),
           AdminHomeScreen.routeName: (_) => const AdminHomeScreen(),
           // Product Screen

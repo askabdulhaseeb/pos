@@ -1,5 +1,5 @@
 class Designation {
-  Designation({required this.id, required this.title});
-  final String id; // unique, auto
-  final String title;
+  Designation({this.id, this.title});
+  String? id; // unique, auto
+  String? title;
 }

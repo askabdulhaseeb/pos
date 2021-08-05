@@ -9,13 +9,13 @@ class ProductProvider extends ChangeNotifier {
   RetailerBill? retailerBill;
   Department? department;
   Category? category;
-  
-  void setRetailerBillNo(String billNo) {
-    product!.retailerBillID.add(billNo);
+
+  void setRetailerBillNo(String? billNo) {
+    product!.retailerBillID!.add(billNo!);
     notifyListeners();
   }
 
-  void setName(String name) {
+  void setName(String? name) {
     product!.name = name;
     notifyListeners();
   }

@@ -1,5 +1,5 @@
 class Department {
-  const Department({required this.title, required this.depID});
-  final String title;
-  final String depID; // unique, auto
+  Department({this.depID, this.title});
+  String? title;
+  String? depID; // unique, auto
 }

@@ -12,7 +12,7 @@ AppBar customWelcomeAppBar(BuildContext context) {
         color: Colors.black,
       ),
     ),
-    actions: [
+    actions: <Widget>[
       IconButton(
         onPressed: () {},
         tooltip: 'settings',
@@ -48,7 +48,7 @@ AppBar customAppBar({required BuildContext context, required String title}) {
         color: Colors.black,
       ),
     ),
-    actions: [
+    actions: <Widget>[
       IconButton(
         onPressed: () {},
         tooltip: 'settings',

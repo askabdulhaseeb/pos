@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pos/models/product/department.dart';
-import 'package:pos/provider/category_provider.dart';
-import 'package:pos/provider/department_provider.dart';
-import 'package:pos/screens/productScreens/editProductDetails/edit_product_details.dart';
+import 'package:pos/provider/product_provider.dart';
 import 'package:pos/screens/widgets/custom_appbar.dart';
 import 'package:pos/screens/widgets/custom_dropdown_button.dart';
+import 'package:pos/screens/widgets/custom_inkwell_button.dart';
 import 'package:pos/screens/widgets/custom_textformfield.dart';
 import 'package:pos/utilities/utilities.dart';
 import 'package:provider/provider.dart';
@@ -18,103 +16,108 @@ class AddProductScreen extends StatefulWidget {
 
 class _AddProductScreenState extends State<AddProductScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
-  String _selectedDep = '';
+  // String _selectedDep = '';
   @override
   Widget build(BuildContext context) {
-    final List<Department> _dep =
-        Provider.of<DepartmentProvider>(context).departments;
-    final CategoryProvider _cat = Provider.of<CategoryProvider>(context);
+    // final CategoryProvider _cat = Provider.of<CategoryProvider>(context);
+    // final List<Department> _dep =
+    //     Provider.of<DepartmentProvider>(context).departments;
+    final ProductProvider _product = Provider.of<ProductProvider>(context);
+    print('object');
     return Scaffold(
       appBar: customAppBar(context: context, title: 'Add Product'),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: Utilities.padding * 2),
         child: Form(
           key: _globalKey,
-          child: Wrap(
-            direction: Axis.vertical,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomTextFormField(
-                    onChange: (value) {},
-                    title: 'Bill No',
-                    hint: 'Retailer Bill No.',
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text('Search'),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(EditProductDetailsScreen.routeName);
-                        },
-                        child: const Text('Add Bill'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              CustomTextFormField(
-                onChange: (value) {},
-                title: 'Bill No',
-                // hint: 'Retailer Bill No.',
-                readOnly: true,
-              ),
-              const SizedBox(height: 20),
-              CustomTextFormField(
-                onChange: (value) {},
-                title: 'Name',
-                hint: 'Product Name',
-              ),
-              CustomDropdownButton(
-                items: _dep
-                    .map((e) => DropdownMenuItem(
-                          value: e.depID,
-                          child: Text(e.title),
-                        ))
-                    .toList(),
-                hint: 'Department',
-                onChange: (String? depID) {
-                  setState(() {
-                    _selectedDep = depID!;
-                  });
-                },
-              ),
-              CustomDropdownButton(
-                items: _cat
-                    .categoriesOfSpecificDepartment(_selectedDep)
-                    .map((e) => DropdownMenuItem(
-                          value: e.catID,
-                          child: Text(e.title),
-                        ))
-                    .toList(),
-                hint: 'Category',
-                onChange: (value) {},
-              ),
-              CustomTextFormField(
-                onChange: (value) {},
-                title: 'Barcode',
-                hint: 'Product Barcode',
-              ),
-              CustomTextFormField(
-                onChange: (value) {},
-                title: 'Size',
-                hint: 'Product Size',
-              ),
-              CustomTextFormField(
-                onChange: (value) {},
-                title: 'Stuff',
-                hint: 'Product Stuff',
-              ),
+              _retailerBillSection(context, _product),
+              if (_product.retailerBill != null)
+                _productDetailsSection(context, _product),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Wrap _productDetailsSection(BuildContext context, ProductProvider product) {
+    return Wrap(
+      direction: Axis.vertical,
+      children: <Widget>[
+        const SizedBox(height: 20),
+        CustomTextFormField(
+          onChange: (String value) {
+            product.setName(value);
+          },
+          title: 'Name',
+          hint: 'Product Name',
+        ),
+        CustomDropdownButton(
+          items: const <DropdownMenuItem<String>>[],
+          hint: 'Department',
+          onChange: (String? depID) {},
+        ),
+        CustomDropdownButton(
+          items: const <DropdownMenuItem<String>>[],
+          hint: 'Category',
+          onChange: (String value) {},
+        ),
+        CustomTextFormField(
+          onChange: (String value) {},
+          title: 'Barcode',
+          hint: 'Product Barcode',
+        ),
+        CustomTextFormField(
+          onChange: (String value) {},
+          title: 'Size',
+          hint: 'Product Size',
+        ),
+        CustomTextFormField(
+          onChange: (String value) {},
+          title: 'Stuff',
+          hint: 'Product Stuff',
+        ),
+      ],
+    );
+  }
+
+  Column _retailerBillSection(BuildContext context, ProductProvider product) {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CustomTextFormField(
+              onChange: (String? value) {
+                product.setRetailerBillNo(value);
+              },
+              title: 'Bill No',
+              hint: 'Retailer Bill No.',
+              autoFocus: true,
+            ),
+            CustomInkWellButton(
+              onTap: () {
+                // TODO: search bill from database
+              },
+              child: const Text('Search'),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Retailer: No Retailer found',
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(width: 60),
+            TextButton(onPressed: () {}, child: const Text('Add New Bill')),
+          ],
+        ),
+      ],
     );
   }
 }

@@ -1,20 +1,20 @@
 class AppUser {
   AppUser({
-    required this.uid,
-    required this.password,
-    required this.name,
-    required this.desID,
-    required this.contact,
-    required this.address,
-    required this.salary,
-    required this.token,
+    this.uid,
+    this.password,
+    this.name,
+    this.desID,
+    this.contact,
+    this.address,
+    this.salary,
+    this.token,
   });
-  final String uid;
-  final String password;
-  final String name;
-  final String desID; // Designation ID
-  final String contact;
-  final String address;
-  final double salary;
-  final String token;
+  String? uid;
+  String? password;
+  String? name;
+  String? desID; // Designation ID
+  String? contact;
+  String? address;
+  double? salary;
+  String? token;
 }

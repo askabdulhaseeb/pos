@@ -31,7 +31,7 @@ class CustomDropdownButton extends StatelessWidget {
       ),
       child: DropdownButton<String>(
         items: _items,
-        onChanged: (value) => _onChange(value),
+        onChanged: (String? value) => _onChange(value),
         hint: Text(_hint),
         isExpanded: true,
         underline: const SizedBox(),

@@ -13,7 +13,7 @@ import 'package:pos/utilities/window_size.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({Key? key}) : super(key: key);
-  static const routeName = '/AdminHomeScreen';
+  static const String routeName = '/AdminHomeScreen';
   @override
   _AdminHomeScreenState createState() => _AdminHomeScreenState();
 }
@@ -35,12 +35,12 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       body: Scrollbar(
         isAlwaysShown: true,
         child: ListView(
-          children: [
+          children: <Widget>[
             Padding(
               padding: EdgeInsets.all(Utilities.padding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   _title('Product'),
                   _stockButtons(),
                   _title('Reports'),

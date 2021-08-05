@@ -42,17 +42,17 @@ class _AddRetailerBillScreenState extends State<AddRetailerBillScreen> {
                 ),
               ),
               CustomTextFormField(
-                  onChange: (String billNo) {
+                  onChange: (String? billNo) {
                     _bill.billNo = billNo;
                   },
                   title: 'Bill No.'),
               CustomDropdownButton(
                 // TODO: Show Selected Retailer
-                items: const [
-                  DropdownMenuItem(value: '1', child: Text('Abc')),
-                  DropdownMenuItem(value: '2', child: Text('Bbc')),
-                  DropdownMenuItem(value: '3', child: Text('Cbc')),
-                  DropdownMenuItem(value: '4', child: Text('Dbc')),
+                items: const <DropdownMenuItem<String>>[
+                  DropdownMenuItem<String>(value: '1', child: Text('Abc')),
+                  DropdownMenuItem<String>(value: '2', child: Text('Bbc')),
+                  DropdownMenuItem<String>(value: '3', child: Text('Cbc')),
+                  DropdownMenuItem<String>(value: '4', child: Text('Dbc')),
                 ],
                 hint: 'Retailer Name',
                 onChange: (String retID) {
@@ -77,7 +77,7 @@ class _AddRetailerBillScreenState extends State<AddRetailerBillScreen> {
               ),
               const SizedBox(height: 10),
               Row(
-                children: [
+                children: <Widget>[
                   const SizedBox(width: 75),
                   CustomInkWellButton(
                       onTap: () {

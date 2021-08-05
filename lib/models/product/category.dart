@@ -1,10 +1,6 @@
 class Category {
-  const Category({
-    required this.title,
-    required this.catID,
-    required this.depID,
-  });
-  final String title;
-  final String catID; // unique, auto
-  final String depID;
+  Category({this.catID, this.depID, this.title});
+  String? title;
+  String? catID; // unique, auto
+  String? depID;
 }
