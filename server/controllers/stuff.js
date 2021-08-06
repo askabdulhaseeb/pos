@@ -48,5 +48,18 @@ module.exports={
                 next();
             })
     }, 
+    async getSearchStuffByTitle(req, res, next) {
+        await db.sequelize.query(`SELECT * FROM stuff where title Like '${req.params.title}%' LIMIT ${req.params.limit1},${req.params.limit2} `)
+            .then(records => {
+                return res.status(200).json({
+                    message: 'Successfully Fetched',
+                    records: records,
+                });
+            }).catch((err) => {
+                console.log(err);
+                next();
+            })
+    },
+
 
 };

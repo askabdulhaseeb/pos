@@ -28,10 +28,9 @@ module.exports={
                 console.log(err);
                 next();
             })
-    }, 
-
-    async getSearchUser(req, res, next) {
-        await db.sequelize.query(`select * from users where name Like '${req.params.name}%'`)
+    },
+    async getSearchUserByName(req, res, next) {
+        await db.sequelize.query(`SELECT * FROM users where name Like '${req.params.name}%' LIMIT ${req.params.limit1},${req.params.limit2}`)
             .then(records => {
                 return res.status(200).json({
                     message: 'Successfully Fetched',
@@ -42,6 +41,30 @@ module.exports={
                 next();
             })
     }, 
-
+    async getSearchUserByEmail(req, res, next) {
+        
+        await db.sequelize.query(`SELECT * FROM users where email Like '${req.params.email}%' LIMIT ${req.params.limit1},${req.params.limit2} `)
+            .then(records => {
+                return res.status(200).json({
+                    message: 'Successfully Fetched',
+                    records: records,
+                });
+            }).catch((err) => {
+                console.log(err);
+                next();
+            })
+    },
+    async getSearchUserBySalary(req, res, next) {
+        await db.sequelize.query(`SELECT * FROM users where Salary = ${req.params.name}`)
+            .then(records => {
+                return res.status(200).json({
+                    message: 'Successfully Fetched',
+                    records: records,
+                });
+            }).catch((err) => {
+                console.log(err);
+                next();
+            })
+    },
 
 };

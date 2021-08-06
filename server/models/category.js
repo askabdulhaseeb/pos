@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
             required: true,
         },
       
-        depID: {
+        dep_id: {
             type: Sequelize.INTEGER,
             references: {
                 model: 'department', // 'fathers' refers to table name

@@ -14,5 +14,11 @@ db.user = require('./user')(sequelize,Sequelize);
 db.retailer = require('./retailer')(sequelize,Sequelize);
 db.retailerBill = require('./retailerBill')(sequelize,Sequelize);
 db.stuff = require('./stuff')(sequelize,Sequelize);
+db.department = require('./department')(sequelize,Sequelize);
+db.designation = require('./designation')(sequelize,Sequelize);
+db.category = require('./category')(sequelize,Sequelize);
+db.productSize = require('./productSize')(sequelize,Sequelize);
+db.product = require('./product')(sequelize,Sequelize);
+
 
 module.exports = db;

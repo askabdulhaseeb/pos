@@ -4,60 +4,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             required: true,
         },
-        password: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            required: true,
-        },
-        email: {
-            type: Sequelize.STRING,
-            unique: true,
-            required: true,
-            isEmail: true,
-        },
-        depID: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: 'department', // 'fathers' refers to table name
-                key: 'id', // 'id' refers to column name in fathers table
-            }
-        },
-        catID: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: 'category', // 'fathers' refers to table name
-                key: 'id', // 'id' refers to column name in fathers table
-            }
-        },
-        contactNo: {
-            type: Sequelize.INTEGER
-        },
-        salary: {
-            type: Sequelize.INTEGER,
-            required: true,
-        },
-        barcode: {
-            type: Sequelize.STRING,
-            required: true,
-            unique: true
-        },
-        retailerBillID:{
-            type : Sequelize.NUMBER,
-            required: true,
-        },
-        sid:{
-            type: Sequelize.INTEGER,
-        },
-        stuff:{
-            type: Sequelize.STRING
-        },
-        rid: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: 'retailer', // 'fathers' refers to table name
-                key: 'id', // 'id' refers to column name in fathers table
-            }
-        },
         retailPrice:{
             type: Sequelize.INTEGER,
         },
@@ -70,7 +16,44 @@ module.exports = (sequelize, Sequelize) => {
         storeQty:{
             type: Sequelize.INTEGER,
         },
-
+        barcode: {
+            type: Sequelize.STRING,
+            required: true,
+            unique: true
+        },
+        size_id:{
+            type: Sequelize.INTEGER,
+        },
+        retailer_bill_id: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'retailerBill', // 'fathers' refers to table name
+                key: 'id', // 'id' refers to column name in fathers table
+            }
+        },
+        dep_id: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'department', // 'fathers' refers to table name
+                key: 'id', // 'id' refers to column name in fathers table
+            }
+        },
+        cat_id: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'category', // 'fathers' refers to table name
+                key: 'id', // 'id' refers to column name in fathers table
+            }
+        },
+      
+        stuff_id: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'stuff', // 'fathers' refers to table name
+                key: 'id', // 'id' refers to column name in fathers table
+            }
+        },
+      
     }, {
         sequelize,
         freezeTableName: true,

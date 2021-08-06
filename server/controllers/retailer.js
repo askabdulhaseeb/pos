@@ -49,4 +49,31 @@ module.exports={
             })
     }, 
 
+
+
+    async getSearchRetailerByName(req, res, next) {
+        await db.sequelize.query(`SELECT * FROM retailer where name Like '${req.params.name}%' LIMIT ${req.params.limit1},${req.params.limit2}`)
+            .then(records => {
+                return res.status(200).json({
+                    message: 'Successfully Fetched',
+                    records: records,
+                });
+            }).catch((err) => {
+                console.log(err);
+                next();
+            })
+    }, 
+    async getSearchUserByAddress(req, res, next) {
+        
+        await db.sequelize.query(`SELECT * FROM retailer where address Like '${req.params.address}%' LIMIT ${req.params.limit1},${req.params.limit2} `)
+            .then(records => {
+                return res.status(200).json({
+                    message: 'Successfully Fetched',
+                    records: records,
+                });
+            }).catch((err) => {
+                console.log(err);
+                next();
+            })
+    },
 };
