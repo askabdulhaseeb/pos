@@ -53,8 +53,10 @@ class _AddRetailerBillScreenState extends State<AddRetailerBillScreen> {
                   DropdownMenuItem<String>(value: '3', child: Text('Cbc')),
                   DropdownMenuItem<String>(value: '4', child: Text('Dbc')),
                 ],
-                onPressIcon: (){},
-                selectedItem: '234',
+                onPressIcon: () {
+                  //TODO: Add Retailer
+                },
+                selectedItem: '1',
                 hint: 'Retailer Name',
                 onChange: (String retID) {
                   _bill.rid = retID;

@@ -8,7 +8,8 @@ class CustomDropdownButton extends StatelessWidget {
     required this.selectedItem,
     required String hint,
     required Function onChange,
-    required this.onPressIcon,
+    this.readOnly = false,
+    this.onPressIcon,
     this.icon = Icons.add,
     this.margin = 4,
     this.padding = 12,
@@ -21,7 +22,8 @@ class CustomDropdownButton extends StatelessWidget {
   final String? selectedItem;
   final String _hint;
   final Function _onChange;
-  final VoidCallback onPressIcon;
+  final bool readOnly;
+  final VoidCallback? onPressIcon;
   final IconData icon;
   final double margin, padding;
 
@@ -46,11 +48,12 @@ class CustomDropdownButton extends StatelessWidget {
             underline: const SizedBox(),
           ),
         ),
-        IconButton(
-          splashRadius: 18,
-          onPressed: onPressIcon,
-          icon: Icon(icon),
-        ),
+        if (!readOnly)
+          IconButton(
+            splashRadius: 18,
+            onPressed: onPressIcon,
+            icon: Icon(icon),
+          ),
       ],
     );
   }
