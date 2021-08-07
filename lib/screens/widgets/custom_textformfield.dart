@@ -4,18 +4,22 @@ import 'package:pos/utilities/utilities.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
-    required Function onChange,
     required this.title,
+    required TextEditingController controller,
     this.keyboardType = TextInputType.text,
+    this.validator,
+    this.initialValue,
     this.hint,
     this.width = 280,
     this.readOnly = false,
     this.autoFocus = false,
     Key? key,
-  })  : _onChange = onChange,
+  })  : _controller = controller,
         super(key: key);
-  final Function _onChange;
+  final TextEditingController _controller;
   final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
+  final String? initialValue;
   final String title;
   final String? hint;
   final double width;
@@ -27,16 +31,31 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class CustomTextFormFieldState extends State<CustomTextFormField> {
+  void _onListen() => setState(() {});
+  @override
+  void initState() {
+    widget._controller.addListener(_onListen);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget._controller.removeListener(_onListen);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: widget.width,
       margin: const EdgeInsets.all(4),
       child: TextFormField(
+        initialValue: widget.initialValue,
+        controller: widget._controller,
         readOnly: widget.readOnly,
-        onChanged: (String? value) => widget._onChange(value!),
         keyboardType: widget.keyboardType,
         autofocus: widget.autoFocus,
+        validator: (String? value) => widget.validator!(value),
         inputFormatters: (widget.keyboardType == TextInputType.number)
             ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
             : <TextInputFormatter>[FilteringTextInputFormatter.deny('\n')],

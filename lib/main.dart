@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pos/provider/category_provider.dart';
 import 'package:pos/provider/department_provider.dart';
 import 'package:pos/provider/product_provider.dart';
+import 'package:pos/provider/retailer_provider.dart';
+import 'package:pos/provider/size_provider.dart';
+import 'package:pos/provider/stuff_provider.dart';
 import 'package:pos/screens/RetailerBillScreens/EditRetailerBillScreen/edit_retailer_bill_screen.dart';
 import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
 import 'package:pos/screens/RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
@@ -30,6 +33,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CategoryProvider>.value(
             value: CategoryProvider()),
         ChangeNotifierProvider<ProductProvider>.value(value: ProductProvider()),
+        ChangeNotifierProvider<RetailerProvider>.value(
+            value: RetailerProvider()),
+        ChangeNotifierProvider<SizeProvider>.value(value: SizeProvider()),
+        ChangeNotifierProvider<StuffProvider>.value(value: StuffProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

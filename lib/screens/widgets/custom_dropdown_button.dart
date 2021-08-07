@@ -5,8 +5,11 @@ class CustomDropdownButton extends StatelessWidget {
   const CustomDropdownButton({
     Key? key,
     required List<DropdownMenuItem<String>> items,
+    required this.selectedItem,
     required String hint,
     required Function onChange,
+    required this.onPressIcon,
+    this.icon = Icons.add,
     this.margin = 4,
     this.padding = 12,
   })  : _items = items,
@@ -15,27 +18,40 @@ class CustomDropdownButton extends StatelessWidget {
         super(key: key);
 
   final List<DropdownMenuItem<String>> _items;
+  final String? selectedItem;
   final String _hint;
   final Function _onChange;
+  final VoidCallback onPressIcon;
+  final IconData icon;
   final double margin, padding;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 280,
-      padding: EdgeInsets.symmetric(horizontal: padding),
-      margin: EdgeInsets.only(left: margin, top: 4, bottom: 4),
-      decoration: BoxDecoration(
-        border: Border.all(width: 1.2, color: Colors.grey),
-        borderRadius: BorderRadius.circular(Utilities.borderRadious),
-      ),
-      child: DropdownButton<String>(
-        items: _items,
-        onChanged: (String? value) => _onChange(value),
-        hint: Text(_hint),
-        isExpanded: true,
-        underline: const SizedBox(),
-      ),
+    return Row(
+      children: <Widget>[
+        Container(
+          width: 280,
+          padding: EdgeInsets.symmetric(horizontal: padding),
+          margin: EdgeInsets.only(left: margin, top: 4, bottom: 4),
+          decoration: BoxDecoration(
+            border: Border.all(width: 1.2, color: Colors.grey),
+            borderRadius: BorderRadius.circular(Utilities.borderRadious),
+          ),
+          child: DropdownButton<String>(
+            value: selectedItem,
+            items: _items,
+            onChanged: (String? value) => _onChange(value),
+            hint: Text(_hint),
+            isExpanded: true,
+            underline: const SizedBox(),
+          ),
+        ),
+        IconButton(
+          splashRadius: 18,
+          onPressed: onPressIcon,
+          icon: Icon(icon),
+        ),
+      ],
     );
   }
 }

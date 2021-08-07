@@ -1,5 +1,6 @@
 class Stuff {
-  Stuff({this.id, this.title});
-  String? title;
+  Stuff({this.depID, this.id, this.title});
+  String? depID;
   String? id; // Auto
+  String? title;
 }

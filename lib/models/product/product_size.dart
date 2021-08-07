@@ -1,5 +1,6 @@
 class ProductSize {
-  ProductSize({this.sid, this.title});
+  ProductSize({this.catID, this.sid, this.title});
+  String? catID;
   String? title;
   String? sid; // unique, auto
 }

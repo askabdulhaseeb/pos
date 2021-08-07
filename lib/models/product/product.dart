@@ -5,9 +5,8 @@ class Product {
     this.catID,
     this.barcode,
     this.retailerBillID,
-    this.sid,
-    this.stuff,
-    this.rid,
+    this.sizeID,
+    this.stuffID,
     this.retailPrice,
     this.salePrice,
     this.shopQty,
@@ -18,9 +17,8 @@ class Product {
   String? catID; // Category ID
   String? barcode; // Auto OR Manual
   List<String>? retailerBillID;
-  String? sid; // Product Size ID
-  String? stuff;
-  List<String>? rid; // Retailer ID
+  String? sizeID; // Product Size ID
+  String? stuffID;
   double? retailPrice;
   double? salePrice; // should be grater then retail price
   int? shopQty;

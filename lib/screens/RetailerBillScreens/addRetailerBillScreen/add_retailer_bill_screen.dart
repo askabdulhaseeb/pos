@@ -17,6 +17,9 @@ class AddRetailerBillScreen extends StatefulWidget {
 class _AddRetailerBillScreenState extends State<AddRetailerBillScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   final RetailerBill _bill = RetailerBill();
+  final TextEditingController _billNo = TextEditingController();
+  final TextEditingController _count = TextEditingController();
+  final TextEditingController _totalAmount = TextEditingController();
   @override
   void initState() {
     _bill.date = DateFormat('dd-MM-yyyy').format(DateTime.now());
@@ -41,11 +44,7 @@ class _AddRetailerBillScreenState extends State<AddRetailerBillScreen> {
                   fontWeight: FontWeight.w300,
                 ),
               ),
-              CustomTextFormField(
-                  onChange: (String? billNo) {
-                    _bill.billNo = billNo;
-                  },
-                  title: 'Bill No.'),
+              CustomTextFormField(controller: _billNo, title: 'Bill No.'),
               CustomDropdownButton(
                 // TODO: Show Selected Retailer
                 items: const <DropdownMenuItem<String>>[
@@ -54,23 +53,21 @@ class _AddRetailerBillScreenState extends State<AddRetailerBillScreen> {
                   DropdownMenuItem<String>(value: '3', child: Text('Cbc')),
                   DropdownMenuItem<String>(value: '4', child: Text('Dbc')),
                 ],
+                onPressIcon: (){},
+                selectedItem: '234',
                 hint: 'Retailer Name',
                 onChange: (String retID) {
                   _bill.rid = retID;
                 },
               ),
               CustomTextFormField(
-                onChange: (String count) {
-                  _bill.productCount = int.parse(count);
-                },
+                controller: _count,
                 title: 'Product Count',
                 hint: 'Total No. of product',
                 keyboardType: TextInputType.number,
               ),
               CustomTextFormField(
-                onChange: (String amount) {
-                  _bill.totalAmount = double.parse(amount);
-                },
+                controller: _totalAmount,
                 title: 'Total Amount',
                 hint: 'Bill Total Amount',
                 keyboardType: TextInputType.number,
