@@ -13,6 +13,7 @@ class CustomDropdownButton extends StatelessWidget {
     this.icon = Icons.add,
     this.margin = 4,
     this.padding = 12,
+    this.width = 280,
   })  : _items = items,
         _hint = hint,
         _onChange = onChange,
@@ -25,14 +26,14 @@ class CustomDropdownButton extends StatelessWidget {
   final bool readOnly;
   final VoidCallback? onPressIcon;
   final IconData icon;
-  final double margin, padding;
+  final double margin, padding, width;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Container(
-          width: 280,
+          width: width,
           padding: EdgeInsets.symmetric(horizontal: padding),
           margin: EdgeInsets.only(left: margin, top: 4, bottom: 4),
           decoration: BoxDecoration(

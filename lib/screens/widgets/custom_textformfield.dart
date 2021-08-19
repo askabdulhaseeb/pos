@@ -13,6 +13,7 @@ class CustomTextFormField extends StatefulWidget {
     this.width = 280,
     this.readOnly = false,
     this.autoFocus = false,
+    this.textAlign = TextAlign.start,
     Key? key,
   })  : _controller = controller,
         super(key: key);
@@ -25,6 +26,7 @@ class CustomTextFormField extends StatefulWidget {
   final double width;
   final bool readOnly;
   final bool autoFocus;
+  final TextAlign textAlign;
 
   @override
   CustomTextFormFieldState createState() => CustomTextFormFieldState();
@@ -55,6 +57,7 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
         readOnly: widget.readOnly,
         keyboardType: widget.keyboardType,
         autofocus: widget.autoFocus,
+        textAlign: widget.textAlign,
         validator: (String? value) => widget.validator!(value),
         inputFormatters: (widget.keyboardType == TextInputType.number)
             ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]

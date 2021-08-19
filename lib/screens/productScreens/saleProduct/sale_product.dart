@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pluto_grid/pluto_grid.dart';
+import 'package:pos/models/user/stoff.dart';
+import 'package:pos/provider/stoff_provider.dart';
 import 'package:pos/screens/widgets/custom_appbar.dart';
+import 'package:pos/screens/widgets/custom_dropdown_button.dart';
 import 'package:pos/screens/widgets/custom_textformfield.dart';
 import 'package:pos/utilities/utilities.dart';
+import 'package:provider/provider.dart';
 
 class SaleProductScreen extends StatefulWidget {
   const SaleProductScreen({Key? key}) : super(key: key);
@@ -32,35 +37,20 @@ class _SaleProductScreenState extends State<SaleProductScreen> {
                   Flexible(
                     flex: 7,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Text('Bill No: 88620'),
-                                Text(
-                                  DateFormat('dd-MM-yyyy').format(
-                                    DateTime.now(),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            CustomTextFormField(
-                              title: 'Barcode',
-                              controller: _barcode,
-                              hint: 'Product Barcode to sale',
-                              autoFocus: true,
-                            ),
-                            CustomTextFormField(
-                              title: 'Item Quantity',
-                              controller: _barcode,
-                              hint: 'No. of items',
-                              width: 140,
-                            ),
-                            
-                          ],
-                        )
+                        _saleInfoHeader(),
+                        SizedBox(
+                          height: 400,
+                          width: 800,
+                          child: PlutoGrid(
+                            // createHeader: (stateManager) =>
+                            //     Text(stateManager.toString()),
+                            onChanged: (PlutoGridOnChangedEvent event) {},
+                            columns: [],
+                            rows: [],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -76,6 +66,60 @@ class _SaleProductScreenState extends State<SaleProductScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Row _saleInfoHeader() {
+    return Row(
+      children: <Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Text('Bill No: 88620'),
+            Text(
+              DateFormat('dd-MM-yyyy').format(
+                DateTime.now(),
+              ),
+            ),
+          ],
+        ),
+        const Spacer(),
+        CustomTextFormField(
+          title: 'Barcode',
+          controller: _barcode,
+          hint: 'Product Barcode to sale',
+          autoFocus: true,
+        ),
+        CustomTextFormField(
+          title: 'Item Quantity',
+          controller: _qty,
+          textAlign: TextAlign.end,
+          keyboardType: TextInputType.number,
+          hint: 'No. of items',
+          width: 140,
+        ),
+        Consumer<StoffProvider>(
+          builder: (
+            BuildContext context,
+            StoffProvider stoff,
+            Widget? child,
+          ) =>
+              CustomDropdownButton(
+            items: stoff.stoff
+                .map((Stoff e) => DropdownMenuItem<String>(
+                      value: e.uid,
+                      child: Text(e.name.toString()),
+                    ))
+                .toList(),
+            selectedItem: '111',
+            hint: 'Select Salemen',
+            readOnly: true,
+            width: 140,
+            onChange: () {},
+          ),
+        ),
+        SizedBox(width: Utilities.padding),
+      ],
     );
   }
 

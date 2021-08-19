@@ -4,6 +4,7 @@ import 'package:pos/provider/department_provider.dart';
 import 'package:pos/provider/product_provider.dart';
 import 'package:pos/provider/retailer_provider.dart';
 import 'package:pos/provider/size_provider.dart';
+import 'package:pos/provider/stoff_provider.dart';
 import 'package:pos/provider/stuff_provider.dart';
 import 'package:pos/screens/RetailerBillScreens/EditRetailerBillScreen/edit_retailer_bill_screen.dart';
 import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
             value: RetailerProvider()),
         ChangeNotifierProvider<SizeProvider>.value(value: SizeProvider()),
         ChangeNotifierProvider<StuffProvider>.value(value: StuffProvider()),
+        ChangeNotifierProvider<StoffProvider>.value(value: StoffProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
