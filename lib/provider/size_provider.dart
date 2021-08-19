@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pos/models/product/product_size.dart';
+import '../models/product/product_size.dart';
 
 class SizeProvider extends ChangeNotifier {
   // ignore: prefer_final_fields
-  // ignore: prefer_final_fields
-  static List<ProductSize>? _size = <ProductSize>[
+  static late List<ProductSize>? _size = <ProductSize>[
     ProductSize(catID: '11', sid: '1', title: 'S'),
     ProductSize(catID: '11', sid: '2', title: 'M'),
     ProductSize(catID: '11', sid: '3', title: 'L'),
@@ -32,9 +31,5 @@ class SizeProvider extends ChangeNotifier {
     List<ProductSize> _temp = <ProductSize>[];
     _temp.addAll(_size!.where((ProductSize element) => element.catID == catID));
     return _temp;
-  }
-
-  void _as() {
-    print(_size);
   }
 }

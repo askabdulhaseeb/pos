@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pos/models/product/retailer_bill.dart';
-import 'package:pos/screens/widgets/custom_appbar.dart';
-import 'package:pos/screens/widgets/custom_dropdown_button.dart';
-import 'package:pos/screens/widgets/custom_inkwell_button.dart';
-import 'package:pos/screens/widgets/custom_textformfield.dart';
-import 'package:pos/utilities/utilities.dart';
+import '../../../models/product/retailer_bill.dart';
+import '../../../utilities/utilities.dart';
+import '../../widgets/custom_appbar.dart';
+import '../../widgets/custom_dropdown_button.dart';
+import '../../widgets/custom_inkwell_button.dart';
+import '../../widgets/custom_textformfield.dart';
 
 class AddRetailerBillScreen extends StatefulWidget {
   const AddRetailerBillScreen({Key? key}) : super(key: key);

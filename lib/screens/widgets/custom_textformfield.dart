@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pos/utilities/utilities.dart';
+import '../../utilities/utilities.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos/screens/widgets/custom_appbar.dart';
+import '../../widgets/custom_appbar.dart';
 
 class PrintBarcodeScreen extends StatelessWidget {
   const PrintBarcodeScreen({Key? key}) : super(key: key);

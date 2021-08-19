@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos/models/product/category.dart';
+import '../models/product/category.dart';
 
 class CategoryProvider extends ChangeNotifier {
   // ignore: prefer_final_fields

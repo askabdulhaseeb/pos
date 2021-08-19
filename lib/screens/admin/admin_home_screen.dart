@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
-import 'package:pos/screens/RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
-import 'package:pos/screens/productScreens/addProduct/add_product.dart';
-import 'package:pos/screens/productScreens/editProductDetails/edit_product_details.dart';
-import 'package:pos/screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
-import 'package:pos/screens/productScreens/printBarcode/print_barcode.dart';
-import 'package:pos/screens/productScreens/saleProduct/sale_product.dart';
-import 'package:pos/screens/widgets/custom_appbar.dart';
-import 'package:pos/screens/widgets/custom_inkwell_button.dart';
-import 'package:pos/utilities/utilities.dart';
-import 'package:pos/utilities/window_size.dart';
+import '../../utilities/utilities.dart';
+import '../../utilities/window_size.dart';
+import '../RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
+import '../RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
+import '../productScreens/addProduct/add_product.dart';
+import '../productScreens/editProductDetails/edit_product_details.dart';
+import '../productScreens/editProductQuantity.dart/edit_product_quantity.dart';
+import '../productScreens/printBarcode/print_barcode.dart';
+import '../productScreens/saleProduct/sale_product.dart';
+import '../widgets/custom_appbar.dart';
+import '../widgets/custom_inkwell_button.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({Key? key}) : super(key: key);

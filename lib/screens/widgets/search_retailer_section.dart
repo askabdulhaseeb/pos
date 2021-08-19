@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pos/provider/retailer_provider.dart';
-import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
-import 'package:pos/utilities/custom_validator.dart';
+import '../../provider/retailer_provider.dart';
+import '../../utilities/custom_validator.dart';
+import '../RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
 import 'custom_inkwell_button.dart';
 import 'custom_textformfield.dart';
 

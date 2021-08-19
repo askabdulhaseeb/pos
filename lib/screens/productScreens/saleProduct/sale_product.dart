@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pluto_grid/pluto_grid.dart';
-import 'package:pos/models/user/stoff.dart';
-import 'package:pos/provider/stoff_provider.dart';
-import 'package:pos/screens/widgets/custom_appbar.dart';
-import 'package:pos/screens/widgets/custom_dropdown_button.dart';
-import 'package:pos/screens/widgets/custom_textformfield.dart';
-import 'package:pos/utilities/utilities.dart';
 import 'package:provider/provider.dart';
+import '../../../models/user/stoff.dart';
+import '../../../provider/stoff_provider.dart';
+import '../../../utilities/utilities.dart';
+import '../../widgets/custom_appbar.dart';
+import '../../widgets/custom_dropdown_button.dart';
+import '../../widgets/custom_textformfield.dart';
 
 class SaleProductScreen extends StatefulWidget {
   const SaleProductScreen({Key? key}) : super(key: key);
@@ -43,13 +42,7 @@ class _SaleProductScreenState extends State<SaleProductScreen> {
                         SizedBox(
                           height: 400,
                           width: 800,
-                          child: PlutoGrid(
-                            // createHeader: (stateManager) =>
-                            //     Text(stateManager.toString()),
-                            onChanged: (PlutoGridOnChangedEvent event) {},
-                            columns: [],
-                            rows: [],
-                          ),
+                          child: Container(), // ploto
                         ),
                       ],
                     ),

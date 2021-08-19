@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos/utilities/utilities.dart';
+import '../../utilities/utilities.dart';
 
 AppBar customWelcomeAppBar(BuildContext context) {
   return AppBar(

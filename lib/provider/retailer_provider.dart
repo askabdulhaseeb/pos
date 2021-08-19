@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pos/models/product/retailer.dart';
-import 'package:pos/models/product/retailer_bill.dart';
+import '../models/product/retailer.dart';
+import '../models/product/retailer_bill.dart';
 
 class RetailerProvider extends ChangeNotifier {
   Retailer? retailer = Retailer();

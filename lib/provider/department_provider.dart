@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos/models/product/department.dart';
+import '../models/product/department.dart';
 
 class DepartmentProvider extends ChangeNotifier {
   // ignore: prefer_final_fields

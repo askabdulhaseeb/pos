@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pos/screens/admin/admin_home_screen.dart';
-import 'package:pos/screens/widgets/copyright.dart';
-import 'package:pos/screens/widgets/custom_inkwell_button.dart';
-import 'package:pos/screens/widgets/password_textformfield.dart';
-import 'package:pos/screens/widgets/username_textformfield.dart';
-import 'package:pos/utilities/window_size.dart';
+import '../../utilities/window_size.dart';
+import '../admin/admin_home_screen.dart';
+import '../widgets/copyright.dart';
+import '../widgets/custom_inkwell_button.dart';
+import '../widgets/password_textformfield.dart';
+import '../widgets/username_textformfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

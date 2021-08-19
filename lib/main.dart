@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pos/provider/category_provider.dart';
-import 'package:pos/provider/department_provider.dart';
-import 'package:pos/provider/product_provider.dart';
-import 'package:pos/provider/retailer_provider.dart';
-import 'package:pos/provider/size_provider.dart';
-import 'package:pos/provider/stoff_provider.dart';
-import 'package:pos/provider/stuff_provider.dart';
-import 'package:pos/screens/RetailerBillScreens/EditRetailerBillScreen/edit_retailer_bill_screen.dart';
-import 'package:pos/screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
-import 'package:pos/screens/RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
-
-import 'package:pos/screens/admin/admin_home_screen.dart';
-import 'package:pos/screens/loginScreen/login_screen.dart';
-import 'package:pos/screens/productScreens/addProduct/add_product.dart';
-import 'package:pos/screens/productScreens/editProductDetails/edit_product_details.dart';
-import 'package:pos/screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
-import 'package:pos/screens/productScreens/printBarcode/print_barcode.dart';
-import 'package:pos/screens/productScreens/saleProduct/sale_product.dart';
 import 'package:provider/provider.dart';
+import 'provider/category_provider.dart';
+import 'provider/department_provider.dart';
+import 'provider/product_provider.dart';
+import 'provider/retailer_provider.dart';
+import 'provider/size_provider.dart';
+import 'provider/stoff_provider.dart';
+import 'provider/stuff_provider.dart';
+import 'screens/RetailerBillScreens/EditRetailerBillScreen/edit_retailer_bill_screen.dart';
+import 'screens/RetailerBillScreens/addRetailerBillScreen/add_retailer_bill_screen.dart';
+import 'screens/RetailerBillScreens/viewRetailerBillScreen/view_retailer_bill_screen.dart';
+import 'screens/admin/admin_home_screen.dart';
+import 'screens/loginScreen/login_screen.dart';
+import 'screens/productScreens/addProduct/add_product.dart';
+import 'screens/productScreens/editProductDetails/edit_product_details.dart';
+import 'screens/productScreens/editProductQuantity.dart/edit_product_quantity.dart';
+import 'screens/productScreens/printBarcode/print_barcode.dart';
+import 'screens/productScreens/saleProduct/sale_product.dart';
 
 void main() {
   runApp(MyApp());

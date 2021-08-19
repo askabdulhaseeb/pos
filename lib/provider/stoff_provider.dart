@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos/models/user/stoff.dart';
+import '../models/user/stoff.dart';
 
 class StoffProvider extends ChangeNotifier {
   // ignore: prefer_final_fields
