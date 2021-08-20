@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pos/screens/productScreens/saleProduct/pluto_main.dart';
 import 'package:provider/provider.dart';
 import '../../../models/user/stoff.dart';
 import '../../../provider/stoff_provider.dart';
@@ -25,39 +26,46 @@ class _SaleProductScreenState extends State<SaleProductScreen> {
       appBar: customAppBar(context: context, title: 'Sale Product'),
       body: Padding(
         padding: EdgeInsets.all(Utilities.padding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            _shopName(size),
-            SizedBox(
-              height: size.height * 0.6,
-              child: Row(
-                children: <Widget>[
-                  Flexible(
-                    flex: 7,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        _saleInfoHeader(),
-                        SizedBox(
-                          height: 400,
-                          width: 800,
-                          child: Container(), // ploto
-                        ),
-                      ],
-                    ),
-                  ),
-                  Flexible(
-                    flex: 3,
-                    child: Container(
-                      color: Colors.yellow,
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+        child: FractionallySizedBox(
+            alignment: Alignment.topCenter,
+            widthFactor: 0.5,
+            // ignore: avoid_unnecessary_containers
+            child: Container(child: PlutoMain())),
+
+        // Column(
+        //   // crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: <Widget>[
+        //     _shopName(size),
+        //     SizedBox(
+        //       height: size.height * 0.6,
+        //       child: Row(
+        //         children: <Widget>[
+        //           Flexible(
+        //             flex: 7,
+        //             child: Column(
+        //               crossAxisAlignment: CrossAxisAlignment.start,
+        //               children: <Widget>[
+        //                 _saleInfoHeader(),
+        //                 SizedBox(
+        //                   height: 400,
+        //                   width: 800,
+        //                   child: Container(), // ploto
+        //                 ),
+        //                 PlutoMain(),                        // PlutoMain()
+        //               ],
+        //             ),
+        //           ),
+        //           Flexible(
+        //             flex: 3,
+        //             child: Container(
+        //               color: Colors.yellow,
+        //             ),
+        //           )
+        //         ],
+        //       ),
+        //     )
+        //   ],
+        // ),
       ),
     );
   }
